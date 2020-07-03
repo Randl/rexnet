@@ -15,7 +15,7 @@ file_id = '1xeIJ3wb83uOowU008ykYj6wDX2dsncA9'
 destination = './tmp/'
 filename = 'rexnetv1_1.0x.pth'
 download_file_from_google_drive(file_id, destination, filename=filename)
-sd = torch.load(os.path.join(destination, filename))
+sd = torch.load(os.path.join(destination, filename), map_location=torch.device('cpu'))
 # Define the transforms need to convert ImageNet data to expected model input
 input_transform = transforms.Compose([
     transforms.Resize(256),
@@ -24,7 +24,7 @@ input_transform = transforms.Compose([
     normalize,
 ])
 model = rexnetv1.ReXNetV1(width_mult=1.0)
-model.load_state_dict(sd, map_location=torch.device('cpu'))
+model.load_state_dict(sd)
 model.eval()
 
 # Run the benchmark
@@ -46,7 +46,7 @@ file_id = '1x2ziK9Oyv66Y9NsxJxXsdjzpQF2uSJj0'
 destination = './tmp/'
 filename = 'rexnetv1_1.3x.pth'
 download_file_from_google_drive(file_id, destination, filename=filename)
-sd = torch.load(os.path.join(destination, filename))
+sd = torch.load(os.path.join(destination, filename), map_location=torch.device('cpu'))
 # Define the transforms need to convert ImageNet data to expected model input
 input_transform = transforms.Compose([
     transforms.Resize(256),
@@ -55,7 +55,7 @@ input_transform = transforms.Compose([
     normalize,
 ])
 model = rexnetv1.ReXNetV1(width_mult=1.3)
-model.load_state_dict(sd, map_location=torch.device('cpu'))
+model.load_state_dict(sd)
 model.eval()
 
 # Run the benchmark
@@ -77,7 +77,7 @@ file_id = '1TOBGsbDhTHWBgqcRnyKIR0tHsJTOPUIG'
 destination = './tmp/'
 filename = 'rexnetv1_1.5x.pth'
 download_file_from_google_drive(file_id, destination, filename=filename)
-sd = torch.load(os.path.join(destination, filename))
+sd = torch.load(os.path.join(destination, filename), map_location=torch.device('cpu'))
 # Define the transforms need to convert ImageNet data to expected model input
 input_transform = transforms.Compose([
     transforms.Resize(256),
@@ -86,7 +86,7 @@ input_transform = transforms.Compose([
     normalize,
 ])
 model = rexnetv1.ReXNetV1(width_mult=1.5)
-model.load_state_dict(sd, map_location=torch.device('cpu'))
+model.load_state_dict(sd)
 model.eval()
 
 # Run the benchmark
@@ -108,7 +108,7 @@ file_id = '1R1aOTKIe1Mvck86NanqcjWnlR8DY-Z4C'
 destination = './tmp/'
 filename = 'rexnetv1_2.0x.pth'
 download_file_from_google_drive(file_id, destination, filename=filename)
-sd = torch.load(os.path.join(destination, filename))
+sd = torch.load(os.path.join(destination, filename), map_location=torch.device('cpu'))
 # Define the transforms need to convert ImageNet data to expected model input
 input_transform = transforms.Compose([
     transforms.Resize(256),
@@ -117,7 +117,7 @@ input_transform = transforms.Compose([
     normalize,
 ])
 model = rexnetv1.ReXNetV1(width_mult=2.0)
-model.load_state_dict(sd, map_location=torch.device('cpu'))
+model.load_state_dict(sd)
 model.eval()
 
 # Run the benchmark
